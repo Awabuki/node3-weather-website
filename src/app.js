@@ -5,6 +5,8 @@ const path = require('path');
 const express = require('express');  // exposes single function
 const hbs = require('hbs')
 const app = express();
+// add heroku support
+const port = process.env.PORT || 3000;
 
 // User defined modules
 const geocode = require('./utils/geocode')
@@ -128,6 +130,6 @@ app.get( '*', (req, res) => {
 });
 
 // start server
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.listen( port, () => {
+  console.log('Server is running on port ' + port);
 });
